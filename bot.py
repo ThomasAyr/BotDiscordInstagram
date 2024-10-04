@@ -3,6 +3,7 @@ import discord
 import asyncio
 import nest_asyncio
 import instaloader
+import os
 from datetime import datetime, timedelta
 
 def get_latest_instagram_posts(username):
