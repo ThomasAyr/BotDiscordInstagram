@@ -67,7 +67,7 @@ async def on_ready():
 
     # Envoyer les posts Instagram sur Discord
     for post in posts:
-        if (current_time - post['date']).total_seconds() < 24 * 3600 and post["description"] is not None:
+        if (current_time - post['date']).total_seconds() < 3600 and post["description"] is not None:
             titre =  post['description'].split('\n')[0].upper().strip("[]")
 
             embed = discord.Embed(
