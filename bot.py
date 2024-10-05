@@ -11,9 +11,12 @@ def get_latest_instagram_posts(username):
     Renvoie un json des 10 derniers posts d'instagram de username
     """
     L = instaloader.Instaloader()
-
-    profile = instaloader.Profile.from_username(L.context, username)
-
+    try:
+        profile = instaloader.Profile.from_username(L.context, username)
+    except instaloader.exceptions.ConnectionException as e:
+        print(f"Erreur de connexion à Instagram : {e}")
+        return []
+    
     # Récupérer les derniers posts
     posts = []
     for post in profile.get_posts():
